@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="sid-38422fae-e03e-43a3-bef4-bd33b32041b2" targetNamespace="http://bpmn.io/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="17.3.0">
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="StartEvent_1y45yut" name="Enter Hospital">
+      <outgoing>SequenceFlow_0h21x7r</outgoing>
+    </startEvent>
+    <task id="Task_1hcentk" name="First Consult">
+      <incoming>SequenceFlow_0h21x7r</incoming>
+      <outgoing>Flow_06kzjje</outgoing>
+    </task>
+    <sequenceFlow id="SequenceFlow_0h21x7r" sourceRef="StartEvent_1y45yut" targetRef="Task_1hcentk" />
+    <task id="Activity_1mflgzh" name="Blood Test Lab">
+      <incoming>Flow_06kzjje</incoming>
+      <outgoing>Flow_1617m2p</outgoing>
+    </task>
+    <task id="Activity_0ao204d" name="Physical Test">
+      <incoming>Flow_1617m2p</incoming>
+      <outgoing>Flow_076fc1k</outgoing>
+    </task>
+    <task id="Activity_00lxqdv" name="X ray-scan">
+      <incoming>Flow_076fc1k</incoming>
+      <outgoing>Flow_1b37r6z</outgoing>
+    </task>
+    <sequenceFlow id="Flow_06kzjje" sourceRef="Task_1hcentk" targetRef="Activity_1mflgzh" />
+    <sequenceFlow id="Flow_1617m2p" sourceRef="Activity_1mflgzh" targetRef="Activity_0ao204d" />
+    <sequenceFlow id="Flow_076fc1k" sourceRef="Activity_0ao204d" targetRef="Activity_00lxqdv" />
+    <task id="Activity_0dz2wnt" name="Medicine">
+      <incoming>Flow_1b37r6z</incoming>
+      <outgoing>Flow_0rxyywk</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1b37r6z" sourceRef="Activity_00lxqdv" targetRef="Activity_0dz2wnt" />
+    <task id="Activity_0t9znt6" name="Final Consult">
+      <incoming>Flow_0rxyywk</incoming>
+      <outgoing>Flow_0wi19k8</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0rxyywk" sourceRef="Activity_0dz2wnt" targetRef="Activity_0t9znt6" />
+    <endEvent id="Event_1mh2ufv" name="Exit Hospital">
+      <incoming>Flow_0wi19k8</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_0wi19k8" sourceRef="Activity_0t9znt6" targetRef="Event_1mh2ufv" />
+  </process>
+  <bpmndi:BPMNDiagram id="BpmnDiagram_1">
+    <bpmndi:BPMNPlane id="BpmnPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1y45yut_di" bpmnElement="StartEvent_1y45yut">
+        <omgdc:Bounds x="152" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="135" y="145" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_1hcentk_di" bpmnElement="Task_1hcentk">
+        <omgdc:Bounds x="240" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1mflgzh_di" bpmnElement="Activity_1mflgzh">
+        <omgdc:Bounds x="420" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ao204d_di" bpmnElement="Activity_0ao204d">
+        <omgdc:Bounds x="600" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00lxqdv_di" bpmnElement="Activity_00lxqdv">
+        <omgdc:Bounds x="790" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dz2wnt_di" bpmnElement="Activity_0dz2wnt">
+        <omgdc:Bounds x="990" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0t9znt6_di" bpmnElement="Activity_0t9znt6">
+        <omgdc:Bounds x="1130" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1mh2ufv_di" bpmnElement="Event_1mh2ufv">
+        <omgdc:Bounds x="1292" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1279" y="145" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0h21x7r_di" bpmnElement="SequenceFlow_0h21x7r">
+        <omgdi:waypoint x="188" y="120" />
+        <omgdi:waypoint x="240" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06kzjje_di" bpmnElement="Flow_06kzjje">
+        <omgdi:waypoint x="340" y="120" />
+        <omgdi:waypoint x="420" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1617m2p_di" bpmnElement="Flow_1617m2p">
+        <omgdi:waypoint x="520" y="120" />
+        <omgdi:waypoint x="600" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_076fc1k_di" bpmnElement="Flow_076fc1k">
+        <omgdi:waypoint x="700" y="120" />
+        <omgdi:waypoint x="790" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1b37r6z_di" bpmnElement="Flow_1b37r6z">
+        <omgdi:waypoint x="890" y="120" />
+        <omgdi:waypoint x="990" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rxyywk_di" bpmnElement="Flow_0rxyywk">
+        <omgdi:waypoint x="1090" y="120" />
+        <omgdi:waypoint x="1130" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wi19k8_di" bpmnElement="Flow_0wi19k8">
+        <omgdi:waypoint x="1230" y="120" />
+        <omgdi:waypoint x="1292" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
